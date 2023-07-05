@@ -6,9 +6,9 @@ import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import AppSettingsModal from '../app-settings-modal/AppSettingsModal';
 import messages from './messages';
 
-const CalculatorSettings = ({ intl, onClose }) => (
+const XpertUnitSummary = ({ intl, onClose }) => (
   <AppSettingsModal
-    appId="calculator"
+    appId="xpert-unit-summary"
     title={intl.formatMessage(messages.heading)}
     enableAppHelp={intl.formatMessage(messages.enableCalculatorHelp)}
     enableAppLabel={intl.formatMessage(messages.enableCalculatorLabel)}
@@ -17,9 +17,9 @@ const CalculatorSettings = ({ intl, onClose }) => (
   />
 );
 
-CalculatorSettings.propTypes = {
+XpertUnitSummary.propTypes = {
   intl: intlShape.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
-export default injectIntl(CalculatorSettings);
+export default injectIntl(XpertUnitSummary);

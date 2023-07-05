@@ -25,9 +25,9 @@ const FeaturesList = ({ app, intl }) => (
       <div key={`collapsible-${app.id}&${id}`} className="d-flex mb-1">
         <SupportedFeature name={intl.formatMessage(messages[`featureName-${id}`])} />
       </div>
-      ))}
+    ))}
   </Collapsible>
-  );
+);
 
 export default injectIntl(FeaturesList);
 

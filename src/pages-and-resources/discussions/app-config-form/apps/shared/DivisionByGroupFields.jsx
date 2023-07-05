@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import {
- Form, TransitionReplace, Hyperlink, Alert,
+  Form, TransitionReplace, Hyperlink, Alert,
 } from '@edx/paragon';
 import { AppContext } from '@edx/frontend-platform/react';
 import { FieldArray, useFormikContext } from 'formik';

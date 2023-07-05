@@ -41,11 +41,11 @@ const AppSettingsForm = ({
     <React.Fragment key="app-enabled">
       {children(formikProps)}
     </React.Fragment>
-      ) : (
-        <React.Fragment key="app-disabled" />
-      )}
+  ) : (
+    <React.Fragment key="app-disabled" />
+  )}
 </TransitionReplace>
-  );
+);
 
 AppSettingsForm.propTypes = {
   // Ignore the warning here since we're just passing along the props as-is and the child component should validate
@@ -88,7 +88,7 @@ const AppSettingsModalBase = ({
       </ActionRow>
     </ModalDialog.Footer>
   </ModalDialog>
-  );
+);
 
 AppSettingsModalBase.propTypes = {
   intl: intlShape.isRequired,
@@ -159,7 +159,9 @@ const AppSettingsModal = ({
     }
   };
 
-  const learnMoreLink = appInfo.documentationLinks?.learnMoreConfiguration && (
+  // TODO: Don't remove the ? after appInfo
+  // Allows check to pass if appInfo is falsey
+  const learnMoreLink = appInfo?.documentationLinks?.learnMoreConfiguration && (
     <Hyperlink
       className="text-primary-500"
       destination={appInfo.documentationLinks.learnMoreConfiguration}
