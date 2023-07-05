@@ -68,7 +68,10 @@ const PagesAndResources = ({ courseId, intl }) => {
         </div>
 
         <PageGrid pages={pages} />
-        <h3 className="m-0">{intl.formatMessage(messages.contentPermissions)}</h3>
+
+        <div className="d-flex justify-content-between my-4 my-md-5 align-items-center">
+          <h3 className="m-0">{intl.formatMessage(messages.contentPermissions)}</h3>
+        </div>
         <PageGrid pages={permissonPages} />
 
         <Switch>
