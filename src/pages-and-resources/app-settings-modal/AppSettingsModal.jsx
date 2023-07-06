@@ -159,7 +159,7 @@ const AppSettingsModal = ({
     }
   };
 
-  // TODO: Don't remove the ? after appInfo
+  // TODO: Remove the ? after appInfo
   // Allows check to pass if appInfo is falsey
   const learnMoreLink = appInfo?.documentationLinks?.learnMoreConfiguration && (
     <Hyperlink

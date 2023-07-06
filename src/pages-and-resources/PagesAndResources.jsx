@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Hyperlink } from '@edx/paragon';
 import messages from './messages';
 import DiscussionsSettings from './discussions';
+import XpertUnitSummarySettings from './xpert-unit-summary/Settings';
 
 import PageGrid from './pages/PageGrid';
 import { fetchCourseApps } from './data/thunks';
@@ -83,6 +84,15 @@ const PagesAndResources = ({ courseId, intl }) => {
           >
             <DiscussionsSettings courseId={courseId} />
           </PageRoute>
+
+          <PageRoute
+            path={[
+              `${path}/xpert-unit-summary/settings`,
+            ]}
+          >
+            <XpertUnitSummarySettings courseId={courseId} />
+          </PageRoute>
+
           <PageRoute path={`${path}/:appId/settings`}>
             {
               ({ match, history }) => {
