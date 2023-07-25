@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Button, Hyperlink } from '@edx/paragon';
 import messages from './messages';
 import DiscussionsSettings from './discussions';
-import XpertUnitSummarySettings from './xpert-unit-summary/Settings';
+import { XpertUnitSummarySettings, appInfo } from './xpert-unit-summary';
 
 import PageGrid from './pages/PageGrid';
 import { fetchCourseApps } from './data/thunks';
@@ -18,6 +18,7 @@ import { getLoadingStatus } from './data/selectors';
 import PagesAndResourcesProvider from './PagesAndResourcesProvider';
 import { RequestStatus } from '../data/constants';
 
+const permissonPages = [appInfo];
 const PagesAndResources = ({ courseId, intl }) => {
   const { path, url } = useRouteMatch();
 
@@ -38,20 +39,6 @@ const PagesAndResources = ({ courseId, intl }) => {
     // eslint-disable-next-line react/jsx-no-useless-fragment
     return <></>;
   }
-
-  const permissonPages = [{
-    id: 'xpert-unit-summary',
-    enabled: false,
-    name: 'Xpert unit summaries',
-    description: 'Harness ChatGPT for quick, focused summaries of text and video content.',
-    allowedOperations: {
-      enable: true,
-      configure: true,
-    },
-    documentationLinks: {
-      learnMoreConfiguration: 'https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/exercises_tools/notes.html',
-    },
-  }];
 
   return (
     <PagesAndResourcesProvider courseId={courseId}>

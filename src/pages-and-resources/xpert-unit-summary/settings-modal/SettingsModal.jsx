@@ -27,7 +27,7 @@ import PermissionDeniedAlert from '../../../generic/PermissionDeniedAlert';
 import { useIsMobile } from '../../../utils';
 import { getLoadingStatus, getSavingStatus } from '../../data/selectors';
 import { updateSavingStatus } from '../../data/slice';
-import { updateXpertSettings, fetchXpertSettings } from '../data/thunks';
+import { updateXpertSettings } from '../data/thunks';
 import AppConfigFormDivider from '../../discussions/app-config-form/apps/shared/AppConfigFormDivider';
 import { PagesAndResourcesContext } from '../../PagesAndResourcesProvider';
 import messages from './messages';
@@ -126,10 +126,6 @@ const SettingsModal = ({
   const submitButtonState = updateSettingsRequestStatus === RequestStatus.IN_PROGRESS ? 'pending' : 'default';
   const isMobile = useIsMobile();
   const modalVariant = isMobile ? 'dark' : 'default';
-
-  useEffect(() => {
-    dispatch(fetchXpertSettings(courseId));
-  }, [courseId]);
 
   const xpertSettings = useModel('XpertSettings', appId);
 
