@@ -16,8 +16,9 @@ export function updateXpertSettings(courseId, state) {
                 dispatch(updateSavingStatus({ status: RequestStatus.SUCCESSFUL }));
                 return true;
             }
-                dispatch(updateSavingStatus({ status: RequestStatus.FAILED }));
-                return false;
+
+            dispatch(updateSavingStatus({ status: RequestStatus.FAILED }));
+            return false;
         } catch (error) {
             dispatch(updateSavingStatus({ status: RequestStatus.FAILED }));
             return false;
