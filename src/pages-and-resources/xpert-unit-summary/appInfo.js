@@ -8,6 +8,6 @@ export default {
       configure: true,
     },
     documentationLinks: {
-      learnMoreConfiguration: 'https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/exercises_tools/notes.html',
+      learnMoreConfiguration: '',
     },
 };

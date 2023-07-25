@@ -7,13 +7,17 @@ import { addModel, updateModel } from '../../../generic/model-store';
 
 export function updateXpertSettings(courseId, state) {
     return async (dispatch) => {
-        await postXpertSettings(courseId, state);
         dispatch(updateSavingStatus({ status: RequestStatus.IN_PROGRESS }));
-
         try {
-            dispatch(updateModel({ modelType: 'XpertSettings', model: { id: 'xpert-unit-summary', enabled: state.enabled } }));
-            dispatch(updateSavingStatus({ status: RequestStatus.SUCCESSFUL }));
-            return true;
+            const { response } = await postXpertSettings(courseId, state);
+            const { success, enabled } = response;
+            if (success) {
+                dispatch(updateModel({ modelType: 'XpertSettings', model: { id: 'xpert-unit-summary', enabled } }));
+                dispatch(updateSavingStatus({ status: RequestStatus.SUCCESSFUL }));
+                return true;
+            }
+                dispatch(updateSavingStatus({ status: RequestStatus.FAILED }));
+                return false;
         } catch (error) {
             dispatch(updateSavingStatus({ status: RequestStatus.FAILED }));
             return false;
